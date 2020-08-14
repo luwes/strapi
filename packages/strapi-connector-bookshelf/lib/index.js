@@ -51,6 +51,8 @@ module.exports = function(strapi) {
         // Create Bookshelf instance for this connection.
         const ORM = new bookshelf(strapi.connections[connectionName]);
 
+        ORM.plugin('bookshelf-virtuals-plugin');
+
         const initFunctionPath = path.resolve(
           strapi.config.appPath,
           'config',

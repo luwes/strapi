@@ -69,6 +69,7 @@ module.exports = ({ models, target }, ctx) => {
         tableName: definition.collectionName,
         hasTimestamps: _.get(definition, 'options.timestamps', false),
         associations: [],
+        virtuals: definition.virtuals,
         defaults: Object.keys(definition.attributes).reduce((acc, current) => {
           if (definition.attributes[current].type && definition.attributes[current].default) {
             acc[current] = definition.attributes[current].default;
